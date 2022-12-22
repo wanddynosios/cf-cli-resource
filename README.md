@@ -1325,3 +1325,22 @@ Disallow space ssh in the targeted space
     command: disallow-space-ssh
     space: myspace
 ```
+
+### `exec`
+ 
+Use string in `exec` var for direct execution of any cf command.
+
+ 
+| Params             | Usage      | CLI Version | Description
+| ---                | ---        | ---         | ---
+| `org`              | *Required* | All         | The organization to target (*Optional if set in the source config*)
+| `space`            | *Required* | All         | The space to target (*Optional if set in the source config*)
+| `exec`             | *Required* | All         | String to execute
+| `exec_timeout`     | *Optional* | All         | Max wait time for execution , in seconds
+```yaml
+- put: cloud-foundry
+  params:
+    command: exec
+    exec: logs myapp
+    exec_timeout: 60
+```
